@@ -6,6 +6,14 @@
 //  Copyright (c) 2015 Vinicius Miana. All rights reserved.
 //
 
+/*Fazer:
+ 
+ -> Singleton
+ -> getTotal
+ -> teste
+ -> delegate C (observer)
+ */
+
 #import "SecondViewController.h"
 #import "Contador.h"
 
@@ -19,10 +27,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    contador = [[Contador alloc] init];
+    contador = [Contador instancia];
 }
 
-
+- (void)viewDidAppear:(BOOL)animated{
+    [self click:self];//Gambiarra. Please Understand
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -32,7 +42,7 @@
 - (IBAction)click:(id)sender {
     _totalBoys.text = [NSString stringWithFormat: @"%d", [contador getBoys]];
     _totalGirls.text = [NSString stringWithFormat: @"%d", [contador getGirls]];
-    _total.text = [NSString stringWithFormat:@"%d", [contador getGirls] + [contador getBoys] ];
+    _total.text = [NSString stringWithFormat:@"%d", [contador getTotal] ];
 }
 
 

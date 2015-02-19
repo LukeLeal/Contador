@@ -11,8 +11,9 @@
 - (void)maisUmCueca;
 - (void)maisUmaGata;
 
++(Contador *) instancia;
 -(int)getBoys;
 -(int)getGirls;
-
+-(int)getTotal;
 @end
 

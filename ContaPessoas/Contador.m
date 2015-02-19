@@ -9,10 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "Contador.h"
 
-
 @implementation Contador {
     int boy;
     int girl;
+}
+
+static Contador *_contador = nil;
+
++ (Contador *) instancia{
+    if (_contador == nil) {
+        _contador = [[Contador alloc] init];
+    }
+    return _contador;
 }
 
 -(id)init {
@@ -37,6 +45,10 @@
 
 -(int)getGirls {
     return girl;
+}
+
+-(int)getTotal{
+    return girl + boy;
 }
 
 
