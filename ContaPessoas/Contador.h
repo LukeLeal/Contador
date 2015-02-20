@@ -6,7 +6,18 @@
 //  Copyright (c) 2015 Vinicius Miana. All rights reserved.
 //
 
-@interface Contador : NSObject 
+@protocol ContadorDelegate <NSObject>
+
+@required
+-(void)atualizaDados;
+
+@end
+
+@interface Contador : NSObject  {
+    id <ContadorDelegate> delegate;
+}
+
+@property(nonatomic, retain) id <ContadorDelegate> delegate;
 
 - (void)maisUmCueca;
 - (void)maisUmaGata;

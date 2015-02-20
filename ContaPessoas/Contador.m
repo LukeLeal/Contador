@@ -14,6 +14,8 @@
     int girl;
 }
 
+@synthesize delegate;
+
 static Contador *_contador = nil;
 
 + (Contador *) instancia{
@@ -26,6 +28,7 @@ static Contador *_contador = nil;
 -(id)init {
     self = [super init];
     if (self) {
+        delegate = nil;
         boy = 0;
         girl = 0;
     }
@@ -34,9 +37,11 @@ static Contador *_contador = nil;
 
 - (void)maisUmCueca {
     boy = boy + 1;
+    [delegate atualizaDados];
 }
 - (void)maisUmaGata {
     girl++;
+    [delegate atualizaDados];
 }
 
 -(int)getBoys {
